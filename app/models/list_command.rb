@@ -8,9 +8,9 @@ class ListCommand < Command
   def response
     items = []
     @list.each_with_index do |item, index|
-      list = "#{index + 1}: #{item.message_body}"
+      list = "#{index + 1}: #{item.description}"
       if item.completed_at.present?
-        list += " ,(Completed: #{item.completed_at.to_date})"
+        list += ", (Completed: #{item.completed_at.to_date})"
       end
       items << list
     end

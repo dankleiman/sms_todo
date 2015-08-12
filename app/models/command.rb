@@ -15,7 +15,7 @@ class Command
   def item_options
     {
       from: @message.from,
-      message_body: @message.message_body
+      description: @message.message_body
     }
   end
 end
