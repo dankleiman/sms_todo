@@ -6,15 +6,19 @@ class ListCommand < Command
   end
 
   def response
-    items = []
-    @list.each_with_index do |item, index|
-      list = "#{index + 1}: #{item.description}"
-      if item.completed_at.present?
-        list += ", (Completed: #{item.completed_at.to_date})"
+    if @list.empty?
+      "Looks like you haven't added anything yet. Create a new item with *new* followed by the item description."
+    else
+      items = []
+      @list.each_with_index do |item, index|
+        list = "#{index + 1}: #{item.description}"
+        if item.completed_at.present?
+          list += ", (Completed: #{item.completed_at.to_date})"
+        end
+        items << list
       end
-      items << list
+      items.join(', ')
     end
-    items.join(', ')
   end
 
 end

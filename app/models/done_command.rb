@@ -7,13 +7,14 @@ class DoneCommand < Command
     if list_index.to_i.to_s == list_index
       @item = list[list_index.to_i - 1]
       @item.update_attributes(completed_at: Time.now)
+      @response_message = "'#{@item.description}'' marked as complete."
     else
-      false
+      @response_message = "Could not find your item. Enter *list* to get all available items."
     end
   end
 
   def response
-    "'#{@item.description}' marked as complete"
+    @response_message
   end
 
 end

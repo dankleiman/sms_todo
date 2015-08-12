@@ -6,15 +6,16 @@ class RemoveCommand < Command
     list_index = @message.message_body.strip
     if list_index.to_i.to_s == list_index
       item = list[list_index.to_i - 1]
-      @description = item.description
+      description = item.description
       item.destroy
+      @response_message = "'#{description}'' removed"
     else
-      false
+      @response_message = "Could not find your item. Enter *list* to get all available items."
     end
   end
 
   def response
-    "'#{@description}'' removed"
+    @response_message
   end
 
 end
