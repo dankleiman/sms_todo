@@ -6,6 +6,6 @@ class NewCommand < Command
   end
 
   def response
-    "Task added: #{@item.message_body}"
+    "Task added: #{@item.description}"
   end
 end
