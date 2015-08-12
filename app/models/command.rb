@@ -10,4 +10,12 @@ class Command
     raise 'Not Implemented'
   end
 
+  private
+
+  def item_options
+    {
+      from: @message.from,
+      message_body: @message.message_body
+    }
+  end
 end

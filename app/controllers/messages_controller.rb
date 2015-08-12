@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     twiml = Twilio::TwiML::Response.new do |r|
       r.Message @command.execute ? @command.response : 'Sorry something went wrong'
     end
-    twiml.text
+    render text: twiml.text
   end
 
   private
