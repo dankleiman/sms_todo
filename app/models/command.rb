@@ -1,5 +1,4 @@
 class Command
-  attr_accessor :message, :response
 
   def initialize(message)
     @message = message

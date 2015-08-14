@@ -1,5 +1,4 @@
 class HelpCommand < Command
-  attr_accessor :command_list
 
   def execute
     @command_list = [
